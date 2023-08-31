@@ -1,10 +1,10 @@
 import { NextResponse } from "next/server";
 import { OpenAI } from "openai";
-// import { process } from "../../env.js";
+import { process } from "../../env.js";
 
 
 const openai = new OpenAI({
-  apiKey: API_KEY,
+  apiKey: process.apikey,
 });
 
 if (!openai.apiKey) {
@@ -88,7 +88,7 @@ export async function POST(request) {
         alimento: ${body.prompt}
         información nutricional:
     `,
-      max_tokens: 60,
+      max_tokens: 300,
     });
     console.log(response);
     return NextResponse.json(response);
