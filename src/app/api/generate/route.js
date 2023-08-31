@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { OpenAI } from "openai";
-import { process } from "../../env";
+import { process } from "../../env.js";
 
 
 const openai = new OpenAI({
