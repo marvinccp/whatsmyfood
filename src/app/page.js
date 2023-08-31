@@ -4,7 +4,7 @@ import Image from "next/image";
 import styles from "./page.module.css";
 import { InfoCard } from "./components/InfoCard/InfoCard";
 export default function Home() {
-  const [login, setLogin] = useState(false);
+  const [login, setLogin] = useState(true);
   const [disabled, setDisabled] = useState(true);
   const [message, setMessage] = useState("Press 1");
   const [check1, setCheck1] = useState(false);
