@@ -13,7 +13,6 @@ if (!openai.apiKey) {
 
 export async function POST(request) {
   const body = await request.json();
-  console.log(body);
   if (!body.prompt) {
     return NextResponse.error(new Error("No prompt found"), { status: 400 });
   }
@@ -90,7 +89,6 @@ export async function POST(request) {
     `,
       max_tokens: 300,
     });
-    console.log(response);
     return NextResponse.json(response);
   } catch (error) {
     return NextResponse.error(error, { status: 500 });

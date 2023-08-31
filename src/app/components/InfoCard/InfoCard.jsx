@@ -7,7 +7,6 @@ export const InfoCard = () => {
   const [loading, setLoading] = useState(false);
   const [prompt, setPrompt] = useState("");
   const [data, setData] = useState('')
-    console.log(prompt);
 
     const inputRef = useRef(null);
   const handleInput = (e) =>{

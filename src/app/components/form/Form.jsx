@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-// import { useState } from "react";
 import "./form.css";
 
 export const Form = ({ handleInput, loading, handleClick, inputRef }) => {
