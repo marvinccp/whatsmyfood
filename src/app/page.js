@@ -1,95 +1,83 @@
-import Image from 'next/image'
-import styles from './page.module.css'
-
+"use client";
+import { useState } from "react";
+import Image from "next/image";
+import styles from "./page.module.css";
+import { InfoCard } from "./components/InfoCard/InfoCard";
 export default function Home() {
+  const [login, setLogin] = useState(false);
+  const [disabled, setDisabled] = useState(true);
+  const [message, setMessage] = useState("Press 1");
+  const [check1, setCheck1] = useState(false);
+  const [check2, setCheck2] = useState(false);
+  const [check3, setCheck3] = useState(false);
+  const [check4, setCheck4] = useState(false);
+
+  const handleClick = (e) => {
+    const number = e.target.outerText;
+
+    if (number == 1) {
+      setCheck1(true);
+      setMessage("Press 2");
+      setDisabled(false);
+    } else if ((number == 2) & check1) {
+      setMessage("Press 3");
+      setCheck2(true);
+    } else if ((number == 3) & check2 & check1) {
+      setMessage("Press 4");
+      setCheck3(true);
+    } else if ((number == 4) & check3 & check2 & check1) {
+      setCheck4(true);
+      setLogin(true);
+    }
+  };
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
+    <>
+      {!login && (
+        <section className={styles.section}>
+          <main className={styles.main}>
             <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
+              className={styles.image}
+              src={"/images/logo-wmf.png"}
+              alt="logo"
+              width={150}
+              height={150}
             />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+          </main>
+          <div className={styles.message}>
+            <h1>{message}</h1>
+          </div>
+          <button
+            onClick={(e) => handleClick(e)}
+            className={`${styles.button} ${styles.topleft}`}
+          >
+            1
+          </button>
+          <button
+            disabled={disabled}
+            onClick={(e) => handleClick(e)}
+            className={`${styles.button} ${styles.topright}`}
+          >
+            2
+          </button>
+          <button
+            onClick={(e) => handleClick(e)}
+            className={`${styles.button} ${styles.btnleft}`}
+          >
+            3
+          </button>
+          <button
+            onClick={(e) => handleClick(e)}
+            className={`${styles.button} ${styles.btnright}`}
+          >
+            4
+          </button>
+        </section>
+      )}
+      {
+        login && (
+          <InfoCard />
+        )
+      }
+    </>
+  );
 }

@@ -1,0 +1,50 @@
+.header-infocard-container{
+    height: 10vh;
+    background: rgb(251, 251, 251); display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+article{
+    width: 90%;
+    padding: 10px;
+    margin: 25px auto;
+    line-height: 1.7rem;
+    font-size: 1.2rem;
+    max-width: 1000px;
+}
+.esquelet{
+    width: 90%;
+    margin: 25px auto;
+    max-width: 1000px;
+    background: rgba(195, 195, 195, 0.669);
+    min-height: 50vh;
+    height: auto;
+    animation: loading 1s infinite alternate;
+    border-radius: 15px;
+}
+@keyframes loading {
+    0% {
+        opacity: 0.6;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+.text-card-container{
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.2rem;
+    width: 90%;
+}
+/* @media(width >= 768){
+article {
+    max-width: 90%;
+    
+}
+} */
