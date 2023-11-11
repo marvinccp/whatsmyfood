@@ -1,8 +1,9 @@
 .header-infocard-container{
-    height: 10vh;
+    height: 13vh;
     background: rgb(251, 251, 251); display: flex;
     justify-content: center;
     align-items: center;
+    padding: 7px 0;
 }
 
 article{
@@ -14,6 +15,8 @@ article{
     max-width: 1000px;
 }
 .esquelet{
+   display: grid;
+   place-content: center;
     width: 90%;
     margin: 25px auto;
     max-width: 1000px;
@@ -22,6 +25,11 @@ article{
     height: auto;
     animation: loading 1s infinite alternate;
     border-radius: 15px;
+}
+
+.text_marvin{
+    color: rgba(195, 195, 195, 0.954);
+
 }
 @keyframes loading {
     0% {

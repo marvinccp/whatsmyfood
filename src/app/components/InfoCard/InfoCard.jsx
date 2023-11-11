@@ -43,8 +43,8 @@ export const InfoCard = () => {
         <Image
           src={"/images/logo-wmf.png"}
           alt="logo-wmf"
-          width={70}
-          height={70}
+          width={60}
+          height={60}
         />
       </header>
       <section className="text-card-container">
@@ -61,7 +61,7 @@ export const InfoCard = () => {
       />
       {loading ? (
         <article className="esquelet">
-         
+         <h1 className="text_marvin">Marvin IA Thinking</h1>
         </article>
       ) : (
         <article>
