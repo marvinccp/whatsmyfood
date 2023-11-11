@@ -7,8 +7,10 @@ import { OpenAI } from "openai";
 //   apiKey: process.apikey,
 // });
 
+const apiKey = process.env.OPENAI_KEY
+
 const openai = new OpenAI({
-  apiKey: OPENAI_KEY,
+  apiKey: apiKey,
 });
 
 if (!openai.apiKey) {
