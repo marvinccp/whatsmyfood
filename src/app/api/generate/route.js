@@ -1,10 +1,14 @@
 import { NextResponse } from "next/server";
 import { OpenAI } from "openai";
-import { process } from "../../env.js";
+// import { process } from "../../env.js";
 
+
+// const openai = new OpenAI({
+//   apiKey: process.apikey,
+// });
 
 const openai = new OpenAI({
-  apiKey: process.apikey,
+  apiKey: OPENAI_KEY,
 });
 
 if (!openai.apiKey) {

@@ -8,7 +8,7 @@ export const InfoCard = () => {
   const [prompt, setPrompt] = useState("");
   const [data, setData] = useState('')
 
-    const inputRef = useRef(null);
+  const inputRef = useRef(null);
   const handleInput = (e) =>{
     setPrompt(e.target.value)
   }
